@@ -5,9 +5,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Header.css'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../Authprobider/Authprobider';
 
 
 function Header() {
+  const {user} = useContext(AuthContext)
   return (
     <Navbar bg="light" expand="lg" className='pb-4'>
       <Container fluid className='mt-2'>
@@ -26,7 +29,7 @@ function Header() {
           <Form className="d-flex">
             <Link to='/register'>Register</Link>
             <Link to='/login'>Login</Link>
-           {/* {'name'} */}
+             {user?.displayName}
             {/* <img src={} alt='loading'/> */}
           </Form>
         </Navbar.Collapse>
