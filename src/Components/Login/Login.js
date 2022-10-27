@@ -69,12 +69,12 @@ function Login() {
           </div>
         </div>
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
       <div className='text-denger'>
       {error}
       </div>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>    
     </Form>
     </div>
   )
