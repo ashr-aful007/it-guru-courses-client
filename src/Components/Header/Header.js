@@ -7,6 +7,7 @@ import './Header.css'
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Authprobider/Authprobider';
+import { Button } from 'react-bootstrap';
 
 
 function Header() {
@@ -27,10 +28,16 @@ function Header() {
             <Link className='link-dark text-decoration-none fw-semibold' to='/blog'>Blog</Link>
           </Nav>
           <Form className="d-flex">
-            <Link to='/register'>Register</Link>
-            <Link to='/login'>Login</Link>
+            
              {user?.displayName}
-            {/* <img src={} alt='loading'/> */}
+             {
+             user.photoURL ? 
+             <img style={{height: '39px'}} roundedCircle src={user.photoURL} alt=''/>
+             : <>
+             <Link to='/register'><Button variant="outline-secondary">Register</Button></Link>
+             <Link to='/login'><Button variant="outline-secondary">Login</Button></Link>
+             </>
+             }           
           </Form>
         </Navbar.Collapse>
       </Container>

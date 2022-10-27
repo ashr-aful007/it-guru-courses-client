@@ -17,6 +17,7 @@ function Login() {
                const user = result.user;
                console.log(user)       
           })
+          .catch(error => console.error(error))
      }
 
   return (
