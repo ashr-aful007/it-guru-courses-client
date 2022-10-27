@@ -11,7 +11,7 @@ function Catagory() {
   
   return (
     <div className='courses-container'>
-    <div className='d-lg-block d-md-block d-sm-none'>
+    <div className='catagory-container'>
     <Caatgorysection courses={catagory}></Caatgorysection>
     </div>
     <div className=''>  

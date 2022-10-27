@@ -23,7 +23,7 @@ function Register() {
           .catch( error => setError(error))
      }
   return (
-    <div>
+    <div className='vh-100'>
            <Form onSubmit={handleSubmit} className='w-50 m-auto mt-5'>
           <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>your name</Form.Label>

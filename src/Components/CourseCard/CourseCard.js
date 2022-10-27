@@ -8,7 +8,7 @@ function CourseCard({allcourses}) {
     <div className='card-contener'>
       {
         allcourses.map(courses =>  
-          <CardGroup>
+          <CardGroup className=''>
           <Card>
           <Card.Img variant="top" src={courses.image} />
           <Card.Body>

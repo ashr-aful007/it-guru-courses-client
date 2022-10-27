@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 const Home = () => {
      return (
-          <div>
+          <div className='vh-100'>
                <div className='bg-img'>
                     <div className='heading-text'>
                     <h1>A New Career With IT Guru</h1>

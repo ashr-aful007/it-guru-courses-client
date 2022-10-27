@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authprobider/Authprobider';
+import './Login.css'
 
 
 function Login() {
@@ -48,8 +49,8 @@ function Login() {
 
 
   return (
-    <div>
-     <Form onSubmit={handleSubmit} className='w-50 m-auto mt-5'>
+    <div className='login-from'>
+     <Form onSubmit={handleSubmit} className='w-50 m-auto mt-5 h-screen'>
       <Form.Group  className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control name='email' type="email" placeholder="Enter email" required />

@@ -19,7 +19,7 @@ function Header() {
     .catch(error => console.error(error))
   }
   return (
-    <Navbar bg="light" expand="lg" className='pb-4'>
+    <Navbar bg="light" expand="lg" className='pb-4 h-100'>
       <Container fluid className='mt-2'>
         <Link className='me-5 fw-bold text-decoration-none link-dark fs-5' to='/'>IT GURU</Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
