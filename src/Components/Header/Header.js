@@ -11,7 +11,13 @@ import { Button } from 'react-bootstrap';
 
 
 function Header() {
-  const {user} = useContext(AuthContext)
+  const {user, logOut} = useContext(AuthContext)
+
+  const handleLogOut = () =>{
+    logOut()
+    .then( () =>{})
+    .catch(error => console.error(error))
+  }
   return (
     <Navbar bg="light" expand="lg" className='pb-4'>
       <Container fluid className='mt-2'>
@@ -31,11 +37,14 @@ function Header() {
             
              {user?.displayName}
              {
-             user.photoURL ? 
+             user?.photoURL ? 
+             <>
              <img style={{height: '39px'}} roundedCircle src={user.photoURL} alt=''/>
+             <Button onClick={handleLogOut} className='mx-2' variant="outline-secondary">Log out</Button>
+             </>       
              : <>
              <Link to='/register'><Button variant="outline-secondary">Register</Button></Link>
-             <Link to='/login'><Button variant="outline-secondary">Login</Button></Link>
+             <Link to='/login'><Button variant="outline-secondary" className='mx-1'>Login</Button></Link>
              </>
              }           
           </Form>
