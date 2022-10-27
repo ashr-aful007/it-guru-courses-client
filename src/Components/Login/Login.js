@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authprobider/Authprobider';
 import './Login.css'
 
@@ -15,7 +15,7 @@ function Login() {
   const location = useLocation()
 
   const from = location.state?.from?.pathname || '/'
-     const {loginProvider, signIn} = useContext(AuthContext);
+     const {loginProvider, signIn, setUser} = useContext(AuthContext);
 
      const googleProvider = new GoogleAuthProvider()
 
@@ -23,7 +23,7 @@ function Login() {
           loginProvider(googleProvider)
           .then(result =>{
                const user = result.user;
-               console.log(user)  
+               setUser(user)  
                setError('')
                navigate(from, {replace: true})     
           })
@@ -39,17 +39,18 @@ function Login() {
        signIn(email, passowrd)
        .then(result =>{
         const user = result.user;
-        console.log(user)
+        setUser(user)
         form.reset()
        })
        .catch(error => setError(error))
      }
 
 
-
-
   return (
     <div className='login-from'>
+      <div className='text-denger'>
+      {error}
+      </div>
      <Form onSubmit={handleSubmit} className='w-50 m-auto mt-5 h-screen'>
       <Form.Group  className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -69,10 +70,8 @@ function Login() {
            <Button variant="outline-secondary">Sign In With GitHub</Button>
           </div>
         </div>
-      </Form.Group>
-      <div className='text-denger'>
-      {error}
-      </div>
+      </Form.Group>  
+      <p><small>New here please</small><Link to='/register'>register</Link></p>  
       <Button variant="primary" type="submit">
         Submit
       </Button>    

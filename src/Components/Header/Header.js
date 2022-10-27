@@ -34,6 +34,7 @@ function Header() {
             <Link className='link-dark text-decoration-none fw-semibold' to='/blog'>Blog</Link>
           </Nav>
           <Form className="d-flex"> 
+            {user?.email}
             <Link to="/profile">       
             <Button className='text-dark' variant="outline-light">{user?.displayName}</Button> 
              </Link>
