@@ -33,13 +33,16 @@ function Header() {
             <Link className='me-5 link-dark text-decoration-none fw-semibold' to='/FAQ'>FAQ</Link>           
             <Link className='link-dark text-decoration-none fw-semibold' to='/blog'>Blog</Link>
           </Nav>
-          <Form className="d-flex">
-            
-             {user?.displayName}
+          <Form className="d-flex"> 
+            <Link to="/profile">       
+            <Button className='text-dark' variant="outline-light">{user?.displayName}</Button> 
+             </Link>
              {
              user?.photoURL ? 
              <>
+             <Link to="/profile">
              <img style={{height: '39px'}} roundedCircle src={user.photoURL} alt=''/>
+             </Link>
              <Button onClick={handleLogOut} className='mx-2' variant="outline-secondary">Log out</Button>
              </>       
              : <>

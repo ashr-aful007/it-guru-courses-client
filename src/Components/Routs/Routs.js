@@ -10,6 +10,7 @@ import PrimeamCourses from "../Primeamcourse/PrimeamCourses";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import Profile from "../Profile/Profile";
 
 
 
@@ -52,8 +53,12 @@ const routs = createBrowserRouter([
                     element: <Login></Login>
                },
                {
-                    path: 'register',
+                    path: '/register',
                     element: <Register></Register>
+               },
+               {
+                    path: '/profile',
+                    element: <PrivateRoute><Profile></Profile></PrivateRoute>
                }
           ]
      }
