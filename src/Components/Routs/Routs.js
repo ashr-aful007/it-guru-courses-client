@@ -1,9 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import Courses from "../Courses/Courses";
+import Blog from "../Blog/Blog";
 import Errorpage from "../Errorpage/Errorpage";
-import Header from "../Header/Header";
+import Faq from "../FAQ/Faq";
 import Home from "../Home/Home";
 import Main from "../Layout/Main";
+import Catagory from '../../Components/Catagory/Catagory'
+import CourseDeatels from "../CourseDeatels/CourseDeatels";
+import PrimeamCourses from "../Primeamcourse/PrimeamCourses";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
+
 
 
 const routs = createBrowserRouter([
@@ -13,15 +19,40 @@ const routs = createBrowserRouter([
           errorElement: <Errorpage></Errorpage>,
           children:[
                {
-                    path: '/home',
+                    path: '/',
                     element: <Home></Home>
                },
                {
-                    path: '/courses',
-                    element: <Courses></Courses>
+                    path: '/catagory',
+                    element: <Catagory></Catagory>,
+                    loader: () => fetch('https://it-guru-sarver-ashr-aful007.vercel.app/courses')
+                           
                },
                {
-                    
+                    path: '/coursedeatels/:id',
+                    element: <CourseDeatels></CourseDeatels>,
+                    loader: ({params}) => fetch(`https://it-guru-sarver-ashr-aful007.vercel.app/courses/${params.id}`)
+
+               },
+               {
+                    path: '/primeamcourses',
+                    element:<PrimeamCourses></PrimeamCourses>
+               },
+               {
+                    path: '/blog',
+                    element: <Blog></Blog>
+               },
+               {
+                    path: '/FAQ',
+                    element: <Faq></Faq>
+               },
+               {
+                    path: '/login',
+                    element: <Login></Login>
+               },
+               {
+                    path: 'register',
+                    element: <Register></Register>
                }
           ]
      }

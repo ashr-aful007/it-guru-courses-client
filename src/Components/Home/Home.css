@@ -1,0 +1,25 @@
+.bg-img{
+     background-image:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(../../../src/assets/Deep_Learning_cc_VIGE.webp);
+     height: 100vh;
+     width: 100%;
+     background-repeat: no-repeat;
+     
+}
+
+.heading-text{    
+     color: white;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+}
+
+.heading-text h1{
+     font-size: 50px;
+     font-weight: 700;
+}
+
+.heading-text p{
+     font-size: 22px;
+}
