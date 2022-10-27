@@ -9,6 +9,7 @@ import CourseDeatels from "../CourseDeatels/CourseDeatels";
 import PrimeamCourses from "../Primeamcourse/PrimeamCourses";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -36,7 +37,7 @@ const routs = createBrowserRouter([
                },
                {
                     path: '/primeamcourses',
-                    element:<PrimeamCourses></PrimeamCourses>
+                    element:<PrivateRoute><PrimeamCourses></PrimeamCourses></PrivateRoute>
                },
                {
                     path: '/blog',

@@ -28,7 +28,7 @@ function CourseDeatels() {
                 <Button variant="outline-primary">Regular</Button>
                 </div>
                 <div>
-                <Link to='/primeamcourses'><Button variant="outline-primary">Get Premium</Button></Link>
+                <Link to='/login'><Button variant="outline-primary">Get Premium</Button></Link>
                 </div>
               </div>
             </small>

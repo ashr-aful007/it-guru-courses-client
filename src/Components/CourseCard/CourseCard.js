@@ -15,7 +15,7 @@ function CourseCard({allcourses}) {
             <Card.Title>{courses.title}</Card.Title>
             <Card.Text>
               {courses.description}
-              <Link to={`/coursedeatels/${courses.id}`}>Readmore</Link>
+              <Link to={`/coursedeatels/${courses.id}`}>Explore</Link>
             </Card.Text>
           </Card.Body>
           <Card.Footer>

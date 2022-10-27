@@ -1,14 +1,19 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react'
+import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authprobider/Authprobider';
 
 
 function Login() {
+  const [error, setError] = useState('')
   const navigate = useNavigate();
+  const location = useLocation()
+
+  const from = location.state?.from?.pathname || '/'
      const {loginProvider, signIn} = useContext(AuthContext);
 
      const googleProvider = new GoogleAuthProvider()
@@ -18,9 +23,12 @@ function Login() {
           .then(result =>{
                const user = result.user;
                console.log(user)  
-               navigate('/')     
+               setError('')
+               navigate(from, {replace: true})     
           })
-          .catch(error => console.error(error))
+          .catch(error =>{ 
+            setError(error)
+          })
      }
      const handleSubmit = event =>{
        event.preventDefault()
@@ -33,7 +41,7 @@ function Login() {
         console.log(user)
         form.reset()
        })
-       .catch(error => console.error(error))
+       .catch(error => setError(error))
      }
 
 
@@ -64,6 +72,9 @@ function Login() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <div className='text-denger'>
+      {error}
+      </div>
     </Form>
     </div>
   )

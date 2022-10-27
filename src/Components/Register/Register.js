@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../Authprobider/Authprobider';
 
 function Register() {
   const {createUser} = useContext(AuthContext)
+  const [error, setError] = useState('');
      const handleSubmit = event =>{
           event.preventDefault();
           const form = event.target;
@@ -15,9 +17,10 @@ function Register() {
           createUser(email,passowrd)
           .then( result =>{
             const user = result.user;
-            console.log(user)
+            setError('')
+            form.reset()
           })
-          .catch( error => console.error(error))
+          .catch( error => setError(error))
      }
   return (
     <div>
@@ -47,6 +50,9 @@ function Register() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <div className='text-denger'>
+        {error}
+      </div>
     </Form>
     </div>
   )
