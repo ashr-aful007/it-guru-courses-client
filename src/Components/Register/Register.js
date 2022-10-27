@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Authprobider/Authprobider';
 
 function Register() {
-  const {createUser, setUser} = useContext(AuthContext)
+  const {createUser, setUser, updataUserProfile} = useContext(AuthContext)
   const [error, setError] = useState('');
      const handleSubmit = event =>{
           event.preventDefault();
@@ -21,9 +21,22 @@ function Register() {
             setUser(user)
             setError('')
             form.reset()
+            handleUpdetUser(name, photoURL)
           })
           .catch( error => setError(error))
      }
+
+     const handleUpdetUser = (name, photoURL) =>{
+            const profile ={
+              displayName: name,
+              photoURL: photoURL
+            }
+            updataUserProfile(profile)
+            .then(()=>{})
+            .catch(error => console.log(error))
+     }
+
+
   return (
     <div className='vh-100'>
            <Form onSubmit={handleSubmit} className='w-50 m-auto mt-5'>
